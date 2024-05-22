@@ -22,13 +22,14 @@ These instructions will help you set up and run the project on your local machin
 1. **Clone the repository:**
 
    ```
-   git clone https://github.com/<your-username>/url-word-counter.git
+   git clone https://github.com/benwolz/url-word-counter.git
    cd url-word-counter
    ```
 
-2. **Build and run the Docker containers:**
-
-```docker-compose up --build```
+2. **Build and run the Docker containers:**   
+   ```
+   docker-compose up --build
+   ```
 
 3. **Access the application:**
 
@@ -40,6 +41,7 @@ Open your web browser and navigate to http://localhost:5000.
 
 Enter a URL in the form on the index page and click "Submit".
 The job to count words at the specified URL will be queued and processed asynchronously.
+
 2. View Results:
 
 The index page will display the results of the submitted jobs, showing the URL and the word count.
