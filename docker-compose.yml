@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  web:
+    build: .
+    container_name: flask-app
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/jobqueue
+      - REDIS_HOST=redis
+    depends_on:
+      - mongo
+      - redis
+
+  worker:
+    build: .
+    container_name: worker
+    command: rq worker --with-scheduler
+    depends_on:
+      - redis
+      - web
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/jobqueue
+      - REDIS_HOST=redis
+
+volumes:
+  mongo-data:

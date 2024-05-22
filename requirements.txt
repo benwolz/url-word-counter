@@ -1,0 +1,6 @@
+Flask
+flask_pymongo
+requests
+redis
+rq
+pytest

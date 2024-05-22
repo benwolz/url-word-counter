@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head><title>Job Queue</title></head>
+<body>
+    <h1>Submit URL</h1>
+    <form action="/submit" method="post">
+        <input type="text" name="url" placeholder="Enter URL">
+        <input type="submit" value="Submit">
+    </form>
+    <h1>Results</h1>
+    <ul>
+        {% for result in results %}
+            <li>{{ result.url }}: {{ result.word_count }} words</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
