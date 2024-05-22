@@ -1,4 +1,3 @@
-# app.py
 from flask import request, render_template, redirect, url_for
 from init import app, mongo, q
 from tasks import count_words_at_url

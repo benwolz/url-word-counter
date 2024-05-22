@@ -1,4 +1,3 @@
-# tasks.py
 import requests
 from init import mongo
 
